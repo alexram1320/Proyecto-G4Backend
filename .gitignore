@@ -1,0 +1,16 @@
+bin/
+obj/
+.vs/
+node_modules/
+.angular/
+dist/
+*.user
+*.suo
+.env
+.secrets/
+firebase-service-account.json
+serviceAccountKey.json
+**/*service-account*.json
+**/*credentials*.json
+appsettings.Local.json
+correo.Local.json

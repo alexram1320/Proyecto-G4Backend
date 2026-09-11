@@ -1,0 +1,31 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.role == 'ADMIN';
+    }
+
+    function sameZone(zoneId) {
+      return signedIn() && request.auth.token.zone_id == zoneId;
+    }
+
+    match /reports/{reportId} {
+      allow read: if isAdmin() || sameZone(resource.data.ZonaId);
+      allow write: if false;
+    }
+
+    match /notifications/{notificationId} {
+      allow read: if signedIn() && resource.data.UsuarioId == request.auth.token.user_id;
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

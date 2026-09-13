@@ -21,10 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Authentication\" />
     <Folder Include="Email\" />
-    <Folder Include="Firebase\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

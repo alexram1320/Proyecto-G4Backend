@@ -14,13 +14,4 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Interfaces\Infrastructure\" />
-    <Folder Include="Interfaces\Repositories\" />
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

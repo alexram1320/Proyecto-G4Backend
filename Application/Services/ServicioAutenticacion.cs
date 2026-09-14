@@ -1,4 +1,4 @@
-using Application.Common;
+using ApagonYa.Application.Common;
 using Application.DTOs.Auth;
 using Application.Interfaces.Infrastructure;
 using Application.Interfaces.Repositories;

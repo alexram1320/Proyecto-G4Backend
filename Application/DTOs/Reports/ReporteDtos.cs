@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using ApagonYa.Application.Common;
-using ApagonYa.Domain.Enums;
+using Domain.Enums;
 
-namespace ApagonYa.Application.DTOs.Reportes;
+namespace Application.DTOs.Reportes;
 
 public sealed class CrearReporteDto
 {

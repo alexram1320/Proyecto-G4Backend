@@ -1,8 +1,8 @@
-using ApagonYa.Application.DTOs.Reportes;
-using ApagonYa.Domain.Entities;
-using ApagonYa.Domain.Enums;
+using Application.DTOs.Reportes;
+using Domain.Entities;
+using Domain.Enums;
 
-namespace ApagonYa.Application.Interfaces.Repositories;
+namespace Application.Interfaces.Repositories;
 
 public sealed record ResultadoCreacionReporte(
     bool Creado,

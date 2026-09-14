@@ -1,21 +1,17 @@
 using ApagonYa.API;
-using ApagonYa.API.Extensions;
-using ApagonYa.API.Middleware;
 using ApagonYa.Application;
-using ApagonYa.Application.Interfaces.Services;
 using ApagonYa.Infrastructure;
+using API.Middleware;
+using Application.Interfaces.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("correo.Local.json", optional: true, reloadOnChange: false);
 builder.Configuration.AddEnvironmentVariables();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
-builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApi();
-builder.Services.AddAutenticacionJwt(builder.Configuration);
-builder.Services.AddCorsAngular(builder.Configuration);
-builder.Services.AddSwaggerJwt();
+
 
 var app = builder.Build();
 

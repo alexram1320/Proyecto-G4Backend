@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ApagonYa.Application.DTOs.Tecnicos;
+namespace Application.DTOs.Tecnicos;
 
 public sealed record CrearTecnicoDto(
     [Required] string Nombre,

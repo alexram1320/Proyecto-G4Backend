@@ -1,4 +1,4 @@
-namespace ApagonYa.Domain.Enums;
+namespace Domain.Enums;
 
 public enum EstadoReporte
 {

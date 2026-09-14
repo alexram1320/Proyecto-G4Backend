@@ -1,4 +1,4 @@
-namespace ApagonYa.Application.DTOs.Confirmaciones;
+namespace Application.DTOs.Confirmaciones;
 
 public sealed record CrearConfirmacionDto;
 

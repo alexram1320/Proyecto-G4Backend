@@ -1,4 +1,4 @@
-using ApagonYa.Application.Interfaces.Infrastructure;
+using Application.Interfaces.Infrastructure;
 using Application.Interfaces.Infrastructure;
 using Application.Interfaces.Repositories;
 using FirebaseAdmin.Auth;

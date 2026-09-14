@@ -1,4 +1,4 @@
-namespace ApagonYa.Application.Interfaces.Infrastructure;
+namespace Application.Interfaces.Infrastructure;
 
 public sealed record ArchivoAlmacenado(string Url, string Nombre, string TipoContenido);
 

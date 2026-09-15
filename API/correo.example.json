@@ -1,0 +1,12 @@
+{
+  "Correo": {
+    "Habilitado": false,
+    "Servidor": "smtp.gmail.com",
+    "Puerto": 587,
+    "Usuario": "",
+    "ContrasenaAplicacion": "",
+    "NombreRemitente": "ApagónYa"
+  }
+}
+
+//Cambiar el nombre  correo.Local.json y solicitar al admin las credenciales

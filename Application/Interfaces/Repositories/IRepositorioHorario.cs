@@ -2,10 +2,13 @@ using ApagonYa.Domain.Entities;
 
 namespace ApagonYa.Application.Interfaces.Repositories;
 
-public interface IRepositorioZona
+public interface IRepositorioHorario
 {
-    Task<Zona?> PorIdAsync(string id, CancellationToken cancellationToken);
-    Task<IReadOnlyCollection<Zona>> ListadoAsync(bool incluirInactivas, CancellationToken cancellationToken);
-    Task CrearAsync(Zona zona, CancellationToken cancellationToken);
-    Task ActualizarAsync(Zona zona, CancellationToken cancellationToken);
+    Task<IReadOnlyCollection<HorarioCorte>> ListadoAsync(
+        string? zonaId,
+        bool incluirInactivos,
+        CancellationToken cancellationToken);
+    Task<HorarioCorte?> PorIdAsync(string id, CancellationToken cancellationToken);
+    Task CrearAsync(HorarioCorte horario, CancellationToken cancellationToken);
+    Task ActualizarAsync(HorarioCorte horario, CancellationToken cancellationToken);
 }

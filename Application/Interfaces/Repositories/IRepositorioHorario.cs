@@ -1,13 +1,11 @@
-using Domain.Entities;
+using ApagonYa.Domain.Entities;
 
-namespace Application.Interfaces.Repositories;
+namespace ApagonYa.Application.Interfaces.Repositories;
 
-public interface IRepositorioHorario
+public interface IRepositorioZona
 {
-    Task<IEnumerable<HorarioCorte>> ObtenerTodosAsync();
-    Task<IEnumerable<HorarioCorte>> ObtenerPorZonaIdAsync(int zonaId);
-    Task<HorarioCorte?> ObtenerPorIdAsync(int id);
-    Task<HorarioCorte> CrearAsync(HorarioCorte horario);
-    Task ActualizarAsync(HorarioCorte horario);
-    Task EliminarAsync(int id);
+    Task<Zona?> PorIdAsync(string id, CancellationToken cancellationToken);
+    Task<IReadOnlyCollection<Zona>> ListadoAsync(bool incluirInactivas, CancellationToken cancellationToken);
+    Task CrearAsync(Zona zona, CancellationToken cancellationToken);
+    Task ActualizarAsync(Zona zona, CancellationToken cancellationToken);
 }

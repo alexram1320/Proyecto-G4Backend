@@ -1,13 +1,14 @@
-namespace Domain.Entities;
+namespace ApagonYa.Domain.Entities;
 
-public class HorarioCorte
+public sealed class HorarioCorte
 {
-    public int Id { get; set; }
-    public int ZonaId { get; set; }
-    public DateTime FechaInicio { get; set; }
-    public DateTime FechaFin { get; set; }
-    public string Estado { get; set; } = "Programado";
-    public string? Observaciones { get; set; }
-
-    public Zona? Zona { get; set; }
+    public string Id { get; set; } = string.Empty;
+    public string ZonaId { get; set; } = string.Empty;
+    public string Titulo { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+    public DateTime FechaHoraInicio { get; set; }
+    public DateTime FechaHoraFin { get; set; }
+    public bool Activo { get; set; } = true;
+    public DateTime FechaCreacion { get; set; }
+    public DateTime FechaActualizacion { get; set; }
 }

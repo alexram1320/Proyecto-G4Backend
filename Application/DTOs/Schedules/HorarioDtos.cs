@@ -1,25 +1,30 @@
-namespace ApagonYa.Application.DTOs.Schedules;
+using System.ComponentModel.DataAnnotations;
 
-public record HorarioCorteDto(
-    int Id,
-    int ZonaId,
-    string? NombreZona,
-    DateTime FechaInicio,
-    DateTime FechaFin,
-    string Estado,
-    string? Observaciones
-);
+namespace Application.DTOs.Horarios;
 
-public record CrearHorarioCorteDto(
-    int ZonaId,
-    DateTime FechaInicio,
-    DateTime FechaFin,
-    string? Observaciones
-);
+public sealed record CrearHorarioDto(
+    [Required] string ZonaId,
+    [Required, StringLength(120)] string Titulo,
+    [StringLength(800)] string Descripcion,
+    DateTime FechaHoraInicio,
+    DateTime FechaHoraFin);
 
-public record ActualizarHorarioCorteDto(
-    DateTime FechaInicio,
-    DateTime FechaFin,
-    string Estado,
-    string? Observaciones
-);
+public sealed record ActualizarHorarioDto(
+    [Required] string ZonaId,
+    [Required, StringLength(120)] string Titulo,
+    [StringLength(800)] string Descripcion,
+    DateTime FechaHoraInicio,
+    DateTime FechaHoraFin);
+
+public sealed record CambiarEstadoHorarioDto(bool Activo);
+
+public sealed record HorarioDto(
+    string Id,
+    string ZonaId,
+    string Titulo,
+    string Descripcion,
+    DateTime FechaHoraInicio,
+    DateTime FechaHoraFin,
+    bool Activo,
+    DateTime FechaCreacion,
+    DateTime FechaActualizacion);

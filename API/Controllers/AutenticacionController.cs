@@ -7,7 +7,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AutenticacioController(IServicioAutenticacion servicio) : ControladorBase
+    public class AutenticacionController(IServicioAutenticacion servicio) : ControladorBase
     {
         [AllowAnonymous]
         [HttpPost("registro")]

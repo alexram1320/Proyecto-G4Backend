@@ -151,4 +151,5 @@ namespace Infrastructure.Email
                 ["Estado"] = estado,
                 ["FechaFinalizacion"] = DateTime.UtcNow
             }, cancellationToken: ct);
+        }
     }

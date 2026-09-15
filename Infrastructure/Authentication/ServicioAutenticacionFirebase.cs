@@ -68,6 +68,8 @@ namespace Infrastructure.Authentication
             string contrasena,
             CancellationToken ct)
         {
+            //Endpoint contiene la documentacion de esta forma de autenticacion de firebase
+            //https://firebase.google.com/docs/reference/rest/auth?utm_source=chatgpt.com
             var url = $"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={configuracion.Opciones.ApiKeyWeb}";
             var solicitud = new
             {

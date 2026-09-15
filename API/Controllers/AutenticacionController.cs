@@ -20,9 +20,7 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpPost("sesion")]
-        public async Task<IActionResult> IniciarSesion(
-            IniciarSesionDto solicitud,
-            CancellationToken ct)
+        public async Task<IActionResult> IniciarSesion(IniciarSesionDto solicitud, CancellationToken ct)
         {
             return Responder(await servicio.IniciarSesionAsync(solicitud, ct));
         }

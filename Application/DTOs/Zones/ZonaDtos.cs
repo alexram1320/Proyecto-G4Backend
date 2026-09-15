@@ -1,23 +1,29 @@
-namespace ApagonYa.Application.DTOs.Zones;
+using System.ComponentModel.DataAnnotations;
 
-public record ZonaDto(
-    int Id,
-    string Nombre,
-    string Departamento,
-    string Municipio,
-    string? CodigoPostal
-);
+namespace ApagonYa.Application.DTOs.Zonas;
 
-public record CrearZonaDto(
-    string Nombre,
-    string Departamento,
-    string Municipio,
-    string? CodigoPostal
-);
+public sealed record CrearZonaDto(
+    [Required, StringLength(100)] string Nombre,
+    [StringLength(500)] string Descripcion);
 
-public record ActualizarZonaDto(
+public sealed record ActualizarZonaDto(
+    [Required, StringLength(100)] string Nombre,
+    [StringLength(500)] string Descripcion);
+
+public sealed record CambiarEstadoZonaDto(bool Activa);
+
+public sealed record ZonaDto(
+    string Id,
     string Nombre,
-    string Departamento,
-    string Municipio,
-    string? CodigoPostal
-);
+    string Descripcion,
+    bool Activa,
+    DateTime FechaCreacion);
+
+public sealed record DetalleZonaDto(
+    string Id,
+    string Nombre,
+    string Descripcion,
+    bool Activa,
+    DateTime FechaCreacion,
+    DateTime FechaActualizacion);
+

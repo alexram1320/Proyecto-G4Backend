@@ -1,12 +1,11 @@
-using Domain.Entities;
+using ApagonYa.Domain.Entities;
 
-namespace Application.Interfaces.Repositories;
+namespace ApagonYa.Application.Interfaces.Repositories;
 
 public interface IRepositorioZona
 {
-    Task<IEnumerable<Zona>> ObtenerTodasAsync();
-    Task<Zona?> ObtenerPorIdAsync(int id);
-    Task<Zona> CrearAsync(Zona zona);
-    Task ActualizarAsync(Zona zona);
-    Task EliminarAsync(int id);
+    Task<Zona?> PorIdAsync(string id, CancellationToken cancellationToken);
+    Task<IReadOnlyCollection<Zona>> ListadoAsync(bool incluirInactivas, CancellationToken cancellationToken);
+    Task CrearAsync(Zona zona, CancellationToken cancellationToken);
+    Task ActualizarAsync(Zona zona, CancellationToken cancellationToken);
 }

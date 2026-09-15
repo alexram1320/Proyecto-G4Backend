@@ -1,8 +1,8 @@
 using Application.Interfaces.Infrastructure;
-using Application.Interfaces.Infrastructure;
 using Application.Interfaces.Repositories;
 using FirebaseAdmin.Auth;
 using Infrastructure.Authentication;
+using Infrastructure.Email;
 using Infrastructure.Firebase;
 using Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +14,15 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddOptions<OpcionesCorreo>()
+            .Bind(configuration.GetSection("Correo"))
+            .Validate(o => !o.Habilitado ||
+                (!string.IsNullOrWhiteSpace(o.Usuario) &&
+                 !string.IsNullOrWhiteSpace(o.ContrasenaAplicacion) &&
+                 !string.IsNullOrWhiteSpace(o.Servidor) && o.Puerto == 587),
+                "Complete Correo en correo.Local.json y use el puerto 587 con STARTTLS.")
+            .ValidateOnStart();
+        services.AddHostedService<EmisorCorreo>();
         services.Configure<ConfiguracionFirebase.OpcionesFirebase>(configuration.GetSection("Firebase"));
         services.Configure<ConfiguracionJwt>(configuration.GetSection("JWT"));
         services.AddSingleton<ConfiguracionFirebase>();

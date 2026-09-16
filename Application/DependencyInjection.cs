@@ -8,6 +8,6 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services) => services
         .AddScoped<IServicioAutenticacion, ServicioAutenticacion>()
-        .AddScoped<IServicioProvisionamientoAdministrador, ServicioProvisionamientoAdministrador>();
-        
+        .AddScoped<IServicioProvisionamientoAdministrador, ServicioProvisionamientoAdministrador>()
+        .AddScoped<IServicioNotificacion, ServicioNotificacion>();
 }

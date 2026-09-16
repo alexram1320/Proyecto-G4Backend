@@ -22,22 +22,28 @@ public static class DependencyInjection
                  !string.IsNullOrWhiteSpace(o.Servidor) && o.Puerto == 587),
                 "Complete Correo en correo.Local.json y use el puerto 587 con STARTTLS.")
             .ValidateOnStart();
+
         services.AddHostedService<EmisorCorreo>();
+
         services.Configure<ConfiguracionFirebase.OpcionesFirebase>(configuration.GetSection("Firebase"));
         services.Configure<ConfiguracionJwt>(configuration.GetSection("JWT"));
+
         services.AddSingleton<ConfiguracionFirebase>();
         services.AddSingleton(sp => sp.GetRequiredService<ConfiguracionFirebase>().CrearApp());
         services.AddSingleton(sp => FirebaseAuth.GetAuth(sp.GetRequiredService<FirebaseAdmin.FirebaseApp>()));
         services.AddSingleton(sp => sp.GetRequiredService<ConfiguracionFirebase>().CrearFirestore());
         services.AddSingleton(sp => sp.GetRequiredService<ConfiguracionFirebase>().CrearStorage());
+
         services.AddSingleton<ContextoFirestore>();
         services.AddHttpContextAccessor();
+
         services.AddHttpClient<IServicioAutenticacionFirebase, ServicioAutenticacionFirebase>();
         services.AddScoped<IUsuarioActual, UsuarioActual>();
         services.AddSingleton<IServicioJwt, ServicioJwt>();
         services.AddSingleton<IAlmacenamientoFirebase, AlmacenamientoFirebase>();
-        services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
 
+        services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
+        services.AddScoped<IRepositorioNotificacion, RepositorioNotificacion>();
 
         return services;
     }

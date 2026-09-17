@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ApagonYa.Application.DTOs.Zonas;
+namespace Application.DTOs.Zonas;
 
 public sealed record CrearZonaDto(
     [Required, StringLength(100)] string Nombre,

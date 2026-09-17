@@ -6,6 +6,7 @@ using Application.DTOs.Auth;
 using Domain.Entities;
 using Application.DTOs.Reportes;
 using Application.DTOs.Resoluciones;
+using Application.DTOs.Zonas;
 
 namespace Application.Services
 {
@@ -50,5 +51,15 @@ namespace Application.Services
                 resolucion.FechaRestablecimiento,
                 resolucion.FechaCreacion);
         }
+            public static ZonaDto Dto(this Zona zona)
+            {
+                return new ZonaDto(
+                    zona.Id,
+                    zona.Nombre,
+                    zona.Descripcion,
+                    zona.Activa,
+                    zona.FechaCreacion);
+            }
+
     }
 }

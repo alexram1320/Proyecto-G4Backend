@@ -1,10 +1,10 @@
 using ApagonYa.Application.Common;
-using Application.DTOs.Auth;
-using Infrastructure.Firebase;
+using ApagonYa.Application.DTOs.Autenticacion;
+using ApagonYa.Infrastructure.Firebase;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace ApagonYa.API.Controllers;
 
 [Route("api/configuracion")]
 public sealed class ConfiguracionController(ConfiguracionFirebase firebase) : ControladorBase

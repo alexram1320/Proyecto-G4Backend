@@ -1,13 +1,12 @@
 using System.Globalization;
 using ApagonYa.Application.Common;
-using Application.DTOs.Estadisticas;
-using Application.Interfaces.Repositories;
-using Application.Interfaces.Services;
-using Domain.Entities;
-using Domain.Enums;
-using IRepositorioZona = ApagonYa.Application.Interfaces.Repositories.IRepositorioZona;
+using ApagonYa.Application.DTOs.Estadisticas;
+using ApagonYa.Application.Interfaces.Repositories;
+using ApagonYa.Application.Interfaces.Services;
+using ApagonYa.Domain.Entities;
+using ApagonYa.Domain.Enums;
 
-namespace Application.Services;
+namespace ApagonYa.Application.Services;
 
 public sealed class ServicioEstadisticas(
     IRepositorioReporte reportes,

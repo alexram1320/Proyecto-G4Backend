@@ -1,6 +1,6 @@
-using Domain.Enums;
+using ApagonYa.Domain.Enums;
 
-namespace Domain.Entities;
+namespace ApagonYa.Domain.Entities;
 
 public sealed class Notificacion
 {

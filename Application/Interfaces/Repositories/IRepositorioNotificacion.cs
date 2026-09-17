@@ -1,6 +1,6 @@
-using Domain.Entities;
+using ApagonYa.Domain.Entities;
 
-namespace Application.Interfaces.Repositories;
+namespace ApagonYa.Application.Interfaces.Repositories;
 
 public interface IRepositorioNotificacion
 {

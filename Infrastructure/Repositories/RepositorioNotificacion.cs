@@ -1,10 +1,10 @@
-using Application.Interfaces.Repositories;
-using Domain.Constants;
-using Domain.Entities;
-using Infrastructure.Firebase;
+using ApagonYa.Application.Interfaces.Repositories;
+using ApagonYa.Domain.Constants;
+using ApagonYa.Domain.Entities;
+using ApagonYa.Infrastructure.Firebase;
 using Google.Cloud.Firestore;
 
-namespace Infrastructure.Repositories;
+namespace ApagonYa.Infrastructure.Repositories;
 
 public sealed class RepositorioNotificacion(ContextoFirestore contexto) : IRepositorioNotificacion
 {

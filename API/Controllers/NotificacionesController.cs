@@ -1,8 +1,8 @@
-using Application.Interfaces.Services;
+using ApagonYa.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace ApagonYa.API.Controllers;
 
 [Authorize]
 [Route("api/notificaciones")]

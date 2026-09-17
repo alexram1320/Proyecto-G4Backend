@@ -1,4 +1,4 @@
-namespace Domain.Enums;
+namespace ApagonYa.Domain.Enums;
 
 public enum TipoNotificacion
 {

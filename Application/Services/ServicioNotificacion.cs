@@ -1,11 +1,11 @@
 using ApagonYa.Application.Common;
-using Application.DTOs.Notificaciones;
-using Application.Interfaces.Infrastructure;
-using Application.Interfaces.Repositories;
-using Application.Interfaces.Services;
-using Domain.Entities;
+using ApagonYa.Application.DTOs.Notificaciones;
+using ApagonYa.Application.Interfaces.Infrastructure;
+using ApagonYa.Application.Interfaces.Repositories;
+using ApagonYa.Application.Interfaces.Services;
+using ApagonYa.Domain.Entities;
 
-namespace Application.Services;
+namespace ApagonYa.Application.Services;
 
 public sealed class ServicioNotificacion(
     IRepositorioNotificacion repositorio,

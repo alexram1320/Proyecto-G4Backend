@@ -1,12 +1,12 @@
-using Application.DTOs.Estadisticas;
-using Application.Interfaces.Services;
-using Domain.Enums;
+using ApagonYa.Application.DTOs.Estadisticas;
+using ApagonYa.Application.Interfaces.Services;
+using ApagonYa.Domain.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace ApagonYa.API.Controllers;
 
-[Authorize(Roles = nameof(RolUsuario.ADMIN))]
+[Authorize(Roles = Roles.Administrador)]
 [Route("api/estadisticas")]
 public sealed class EstadisticasController(IServicioEstadisticas servicio) : ControladorBase
 {

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using Application.DTOs.Auth;
 using Domain.Entities;
+using Application.DTOs.Reportes;
+using Application.DTOs.Resoluciones;
 
 namespace Application.Services
 {
@@ -19,6 +21,34 @@ namespace Application.Services
                 usuario.Rol.ToString(),
                 usuario.ZonaId,
                 usuario.Activo);
+        }
+        
+        public static ReporteDto Dto(this ReporteCorteEnergia reporte)
+        {
+            return new ReporteDto(
+                reporte.Id,
+                reporte.ZonaId,
+                reporte.CiudadanoId,
+                reporte.TecnicoId,
+                reporte.DireccionAproximada,
+                reporte.FechaHoraInicio,
+                reporte.Estado.ToString(),
+                reporte.UrlEvidencia,
+                reporte.CantidadConfirmaciones,
+                reporte.FechaCreacion);
+        }
+
+        public static ResolucionDto Dto(this Resolucion resolucion)
+        {
+            return new ResolucionDto(
+                resolucion.Id,
+                resolucion.ReporteId,
+                resolucion.TecnicoId,
+                resolucion.Causa,
+                resolucion.Descripcion,
+                resolucion.FechaEstimadaResolucion,
+                resolucion.FechaRestablecimiento,
+                resolucion.FechaCreacion);
         }
     }
 }

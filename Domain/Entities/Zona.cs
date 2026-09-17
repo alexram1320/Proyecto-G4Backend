@@ -1,4 +1,4 @@
-namespace ApagonYa.Domain.Entities;
+namespace Domain.Entities;
 
 public sealed class Zona
 {

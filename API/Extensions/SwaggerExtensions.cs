@@ -23,9 +23,9 @@ namespace API.Extensions
                     Scheme = "bearer",
                     BearerFormat = "JWT"
                 });
-                opciones.AddSecurityRequirement(_ => new OpenApiSecurityRequirement
+                opciones.AddSecurityRequirement(documento => new OpenApiSecurityRequirement
                 {
-                    [new OpenApiSecuritySchemeReference("Bearer", null)] = []
+                    [new OpenApiSecuritySchemeReference("Bearer", documento)] = []
                 });
             });
 

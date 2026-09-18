@@ -130,6 +130,7 @@ namespace Infrastructure.Authentication
             IReadOnlyDictionary<string, object> claims,
             CancellationToken ct)
         {
+            //https://firebase.google.com/docs/auth/admin/custom-claims?hl=es-419    firebase lo maneja asi, el rol y la zona también están en el perfil users de Firestore,
             return autenticacion.SetCustomUserClaimsAsync(uid, claims, ct);
         }
 

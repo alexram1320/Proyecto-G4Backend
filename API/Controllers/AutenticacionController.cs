@@ -11,9 +11,7 @@ namespace API.Controllers
     {
         [AllowAnonymous]
         [HttpPost("registro")]
-        public async Task<IActionResult> Registrar(
-        RegistrarUsuarioDto solicitud,
-        CancellationToken ct)
+        public async Task<IActionResult> Registrar(RegistrarUsuarioDto solicitud, CancellationToken ct)
         {
             return Responder(await servicio.RegistrarAsync(solicitud, ct));
         }
@@ -27,18 +25,14 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpPost("renovar")]
-        public async Task<IActionResult> Renovar(
-            RenovarTokenDto solicitud,
-            CancellationToken ct)
+        public async Task<IActionResult> Renovar(RenovarTokenDto solicitud, CancellationToken ct)
         {
             return Responder(await servicio.RenovarAsync(solicitud, ct));
         }
 
         [AllowAnonymous]
         [HttpPost("recuperar-contrasena")]
-        public async Task<IActionResult> RecuperarContrasena(
-            RecuperarContrasenaDto solicitud,
-            CancellationToken ct)
+        public async Task<IActionResult> RecuperarContrasena(RecuperarContrasenaDto solicitud, CancellationToken ct)
         {
             return Responder(await servicio.RecuperarContrasenaAsync(solicitud, ct));
         }

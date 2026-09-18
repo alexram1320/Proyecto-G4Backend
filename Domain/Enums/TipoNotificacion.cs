@@ -1,0 +1,10 @@
+namespace Domain.Enums;
+
+public enum TipoNotificacion
+{
+    REPORTE_CREADO,
+    REPORTE_CONFIRMADO,
+    TECNICO_ASIGNADO,
+    ESTADO_CAMBIADO,
+    REPORTE_RESUELTO
+}

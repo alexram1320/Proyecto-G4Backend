@@ -1,6 +1,6 @@
-using ApagonYa.Domain.Entities;
+using Domain.Entities;
 
-namespace ApagonYa.Application.Interfaces.Repositories;
+namespace Application.Interfaces.Repositories;
 
 public interface IRepositorioHorario
 {

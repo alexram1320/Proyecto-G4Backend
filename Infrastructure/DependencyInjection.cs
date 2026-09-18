@@ -1,10 +1,9 @@
-using Application.Interfaces.Infrastructure;
-using Application.Interfaces.Repositories;
+using ApagonYa.Application.Interfaces.Infrastructure;
+using ApagonYa.Application.Interfaces.Repositories;
+using ApagonYa.Infrastructure.Authentication;
+using ApagonYa.Infrastructure.Firebase;
+using ApagonYa.Infrastructure.Repositories;
 using FirebaseAdmin.Auth;
-using Infrastructure.Authentication;
-using Infrastructure.Email;
-using Infrastructure.Firebase;
-using Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,15 +13,6 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddOptions<OpcionesCorreo>()
-            .Bind(configuration.GetSection("Correo"))
-            .Validate(o => !o.Habilitado ||
-                (!string.IsNullOrWhiteSpace(o.Usuario) &&
-                 !string.IsNullOrWhiteSpace(o.ContrasenaAplicacion) &&
-                 !string.IsNullOrWhiteSpace(o.Servidor) && o.Puerto == 587),
-                "Complete Correo en correo.Local.json y use el puerto 587 con STARTTLS.")
-            .ValidateOnStart();
-        services.AddHostedService<EmisorCorreo>();
         services.Configure<ConfiguracionFirebase.OpcionesFirebase>(configuration.GetSection("Firebase"));
         services.Configure<ConfiguracionJwt>(configuration.GetSection("JWT"));
         services.AddSingleton<ConfiguracionFirebase>();
@@ -37,8 +27,12 @@ public static class DependencyInjection
         services.AddSingleton<IServicioJwt, ServicioJwt>();
         services.AddSingleton<IAlmacenamientoFirebase, AlmacenamientoFirebase>();
         services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
-
-
+        services.AddScoped<IRepositorioZona, RepositorioZona>();
+        services.AddScoped<IRepositorioTecnico, RepositorioTecnico>();
+        services.AddScoped<IRepositorioReporte, RepositorioReporte>();
+        services.AddScoped<IRepositorioConfirmacion, RepositorioConfirmacion>();
+        services.AddScoped<IRepositorioResolucion, RepositorioResolucion>();
+        services.AddScoped<IRepositorioNotificacion, RepositorioNotificacion>();
         return services;
     }
 }

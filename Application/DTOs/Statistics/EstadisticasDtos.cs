@@ -1,4 +1,4 @@
-namespace Application.DTOs.Estadisticas;
+namespace ApagonYa.Application.DTOs.Estadisticas;
 
 public sealed record PuntoGraficoDto(
     string Etiqueta,

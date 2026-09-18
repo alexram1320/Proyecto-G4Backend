@@ -10,7 +10,8 @@ public sealed record CrearTecnicoDto(
     bool Disponible);
 
 public sealed record ActualizarTecnicoDto(
-    [Required] string Nombre);
+    [Required] string Nombre,
+    [Required, EmailAddress] string Email);
 
 public sealed record DisponibilidadTecnicoDto(bool Disponible);
 

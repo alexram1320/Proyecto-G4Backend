@@ -150,6 +150,19 @@ public sealed class ServicioTecnico(
         {
             return Respuesta<TecnicoDto>.Fallida("Usuario relacionado no encontrado", 409);
         }
+        var email = solicitud.Email.Trim().ToLowerInvariant();
+
+        if (!string.Equals(email, usuario.Email, StringComparison.OrdinalIgnoreCase))
+        {
+            if (await usuarios.PorEmailAsync(email, ct) is not null ||
+                await firebase.BuscarUsuarioPorEmailAsync(email, ct) is not null)
+            {
+                return Respuesta<TecnicoDto>.Fallida("El correo ya esta registrado", 409);
+            }
+
+            await firebase.ActualizarEmailAsync(usuario.FirebaseUid, email, ct);
+            usuario.Email = email;
+        }
 
         usuario.Nombre = solicitud.Nombre.Trim();
         usuario.FechaActualizacion = DateTime.UtcNow;

@@ -1,21 +1,23 @@
-using ApagonYa.Application.DTOs.Estadisticas;
-using ApagonYa.Application.Interfaces.Services;
-using ApagonYa.Domain.Constants;
+using Application.DTOs.Estadisticas;
+using Application.Interfaces.Services;
+using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApagonYa.API.Controllers;
+namespace API.Controllers;
 
-[Authorize(Roles = Roles.Administrador)]
+[Authorize(Roles = nameof(RolUsuario.ADMIN))]
 [Route("api/estadisticas")]
-public sealed class EstadisticasController(IServicioEstadisticas servicio) : ControladorBase
+public sealed class EstadisticasController(
+    IServicioEstadisticas servicio) : ControladorBase
 {
     [HttpGet("panel")]
     public async Task<IActionResult> Panel(
         [FromQuery] FiltroEstadisticasDto filtro,
         CancellationToken ct)
     {
-        return Responder(await servicio.PanelAsync(filtro, ct));
+        return Responder(
+            await servicio.PanelAsync(filtro, ct));
     }
 
     [HttpGet("zonas")]
@@ -23,7 +25,8 @@ public sealed class EstadisticasController(IServicioEstadisticas servicio) : Con
         [FromQuery] FiltroEstadisticasDto filtro,
         CancellationToken ct)
     {
-        return Responder(await servicio.ZonasAsync(filtro, ct));
+        return Responder(
+            await servicio.ZonasAsync(filtro, ct));
     }
 
     [HttpGet("tecnicos")]
@@ -31,7 +34,10 @@ public sealed class EstadisticasController(IServicioEstadisticas servicio) : Con
         [FromQuery] FiltroEstadisticasDto filtro,
         CancellationToken ct)
     {
-        return Responder(await servicio.TecnicosAsync(filtro, ct));
+        return Responder(
+            await servicio.TecnicosAsync(
+                filtro,
+                ct));
     }
 
     [HttpGet("tendencias")]
@@ -40,6 +46,10 @@ public sealed class EstadisticasController(IServicioEstadisticas servicio) : Con
         [FromQuery] string agrupacion = "semana",
         CancellationToken ct = default)
     {
-        return Responder(await servicio.TendenciasAsync(filtro, agrupacion, ct));
+        return Responder(
+            await servicio.TendenciasAsync(
+                filtro,
+                agrupacion,
+                ct));
     }
 }

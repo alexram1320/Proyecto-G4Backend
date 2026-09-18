@@ -1,11 +1,11 @@
 using ApagonYa.Application.Common;
-using ApagonYa.Application.DTOs.Notificaciones;
-using ApagonYa.Application.Interfaces.Infrastructure;
-using ApagonYa.Application.Interfaces.Repositories;
-using ApagonYa.Application.Interfaces.Services;
-using ApagonYa.Domain.Entities;
+using Application.DTOs.Notificaciones;
+using Application.Interfaces.Infrastructure;
+using Application.Interfaces.Repositories;
+using Application.Interfaces.Services;
+using Domain.Entities;
 
-namespace ApagonYa.Application.Services;
+namespace Application.Services;
 
 public sealed class ServicioNotificacion(
     IRepositorioNotificacion repositorio,
@@ -23,7 +23,9 @@ public sealed class ServicioNotificacion(
             Tipo = solicitud.Tipo,
             Titulo = solicitud.Titulo,
             Mensaje = solicitud.Mensaje,
-            Prioridad = solicitud.Prioridad.Equals("ALTA", StringComparison.OrdinalIgnoreCase)
+            Prioridad = solicitud.Prioridad.Equals(
+                "ALTA",
+                StringComparison.OrdinalIgnoreCase)
                 ? "ALTA"
                 : "NORMAL",
             FechaCreacion = DateTime.UtcNow
@@ -36,7 +38,11 @@ public sealed class ServicioNotificacion(
         int limite,
         CancellationToken ct)
     {
-        var datos = await repositorio.PorUsuarioAsync(usuarioActual.UsuarioId, limite, ct);
+        var datos = await repositorio.PorUsuarioAsync(
+            usuarioActual.UsuarioId,
+            limite,
+            ct);
+
         var resultado = datos.Select(notificacion => new NotificacionDto(
             notificacion.Id,
             notificacion.UsuarioId,
@@ -46,16 +52,28 @@ public sealed class ServicioNotificacion(
             notificacion.Mensaje,
             notificacion.Prioridad,
             notificacion.Leida,
-            notificacion.FechaCreacion)).ToArray();
+            notificacion.FechaCreacion))
+            .ToArray();
 
-        return Respuesta<IReadOnlyCollection<NotificacionDto>>.Correcta(resultado);
+        return Respuesta<IReadOnlyCollection<NotificacionDto>>
+            .Correcta(resultado);
     }
 
-    public async Task<Respuesta<bool>> MarcarLeidaAsync(string id, CancellationToken ct)
+    public async Task<Respuesta<bool>> MarcarLeidaAsync(
+        string id,
+        CancellationToken ct)
     {
-        var actualizada = await repositorio.MarcarLeidaAsync(id, usuarioActual.UsuarioId, ct);
+        var actualizada = await repositorio.MarcarLeidaAsync(
+            id,
+            usuarioActual.UsuarioId,
+            ct);
+
         return actualizada
-            ? Respuesta<bool>.Correcta(true, "Notificacion marcada como leida")
-            : Respuesta<bool>.Fallida("Notificacion no encontrada", 404);
+            ? Respuesta<bool>.Correcta(
+                true,
+                "Notificacion marcada como leida")
+            : Respuesta<bool>.Fallida(
+                "Notificacion no encontrada",
+                404);
     }
 }

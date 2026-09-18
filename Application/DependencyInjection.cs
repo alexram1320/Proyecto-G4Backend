@@ -1,5 +1,5 @@
-using ApagonYa.Application.Interfaces.Services;
-using ApagonYa.Application.Services;
+using Application.Interfaces.Services;
+using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ApagonYa.Application;
@@ -10,6 +10,7 @@ public static class DependencyInjection
         .AddScoped<IServicioAutenticacion, ServicioAutenticacion>()
         .AddScoped<IServicioProvisionamientoAdministrador, ServicioProvisionamientoAdministrador>()
         .AddScoped<IServicioZona, ServicioZona>()
+        .AddScoped<IServicioHorario, ServicioHorario>()
         .AddScoped<IServicioTecnico, ServicioTecnico>()
         .AddScoped<IServicioReporte, ServicioReporte>()
         .AddScoped<IServicioVerificacion, ServicioVerificacion>()

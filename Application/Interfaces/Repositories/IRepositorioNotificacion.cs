@@ -1,10 +1,20 @@
-using ApagonYa.Domain.Entities;
+using Domain.Entities;
 
-namespace ApagonYa.Application.Interfaces.Repositories;
+namespace Application.Interfaces.Repositories;
 
 public interface IRepositorioNotificacion
 {
-    Task CrearAsync(Notificacion notificacion, CancellationToken cancellationToken);
-    Task<IReadOnlyCollection<Notificacion>> PorUsuarioAsync(string usuarioId, int limite, CancellationToken cancellationToken);
-    Task<bool> MarcarLeidaAsync(string id, string usuarioId, CancellationToken cancellationToken);
+    Task CrearAsync(
+        Notificacion notificacion,
+        CancellationToken cancellationToken);
+
+    Task<IReadOnlyCollection<Notificacion>> PorUsuarioAsync(
+        string usuarioId,
+        int limite,
+        CancellationToken cancellationToken);
+
+    Task<bool> MarcarLeidaAsync(
+        string id,
+        string usuarioId,
+        CancellationToken cancellationToken);
 }

@@ -1,6 +1,6 @@
-using ApagonYa.Domain.Enums;
+using Domain.Enums;
 
-namespace ApagonYa.Application.DTOs.Notificaciones;
+namespace Application.DTOs.Notificaciones;
 
 public sealed record CrearNotificacionDto(
     string UsuarioId,
